@@ -16,7 +16,6 @@ def proxy():
     
     try:
         response = requests.get(url, headers=headers)
-        # Return the response from the target API
         return jsonify({
             "status_code": response.status_code,
             "response": response.json() if response.headers['Content-Type'] == 'application/json' else response.text
