@@ -42,7 +42,7 @@ def proxy():
             return jsonify({"error": "URL is required"}), 400
         try:
             response = requests.get(url)
-            return jsonify(response)
+            return response
         except requests.exceptions.RequestException as e:
             return jsonify({"error": str(e)}), 500
 
