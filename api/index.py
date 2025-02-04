@@ -42,10 +42,7 @@ def proxy():
             return jsonify({"error": "URL is required"}), 400
         try:
             response = requests.get(url)
-            return jsonify({
-                "status_code": response.status_code,
-                "response": response.json() if response.headers.get('Content-Type', '').startswith('application/json') else response.text
-            })
+            return jsonify(response)
         except requests.exceptions.RequestException as e:
             return jsonify({"error": str(e)}), 500
 
@@ -59,13 +56,11 @@ def proxy():
         
         try:
             response = requests.get(url, headers=headers)
-            """
+            
             return jsonify({
                 "status_code": response.status_code,
                 "response": response.json() if response.headers.get('Content-Type', '').startswith('application/json') else response.text
             })
-            """
-            return jsonify(response)
         except requests.exceptions.RequestException as e:
             return jsonify({"error": str(e)}), 500
 
