@@ -39,7 +39,7 @@ logger = logging.getLogger("sse-proxy")
 
 app = Flask(__name__)
 # allow all origins (adjust in production)
-CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+CORS(app)
 
 # Hop-by-hop headers that should not be forwarded per RFC 2616
 HOP_BY_HOP = {
