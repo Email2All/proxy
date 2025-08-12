@@ -38,7 +38,7 @@ logging.basicConfig(level=logging.INFO)
 
 app = Flask(__name__)
 # Allow any origin for easy testing; tighten this in production
-CORS(app, supports_credentials=True)
+CORS(app)
 
 @app.route('/proxy', methods=['POST'])
 def proxy_post():
